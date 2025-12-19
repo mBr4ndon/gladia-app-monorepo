@@ -34,7 +34,7 @@ export async function upsertBeltPromotionRule(
         await authDb
             .update(beltPromotionRule)
             .set({ requiredClasses })
-            .where(eq(beltPromotionRule.id, existing[0].id));
+            .where(eq(beltPromotionRule.id, existing[0]!.id));
         return;
     }
 
