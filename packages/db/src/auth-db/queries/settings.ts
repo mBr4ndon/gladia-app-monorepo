@@ -100,7 +100,7 @@ export async function upsertStudentMembership(
                 notes: data.notes,
                 stripeCustomerId: data.stripeCustomerId,
             })
-            .where(eq(studentMembership.id, existing[0].id));
+            .where(eq(studentMembership.id, existing[0]!.id));
         return;
     }
 
