@@ -1,0 +1,440 @@
+{
+  "dashboard": {
+    "title": "Student Profile",
+    "subtitle": "View student details and attendance history",
+    "streak": "Current streak",
+    "totalClasses": "Total classes",
+    "achievements": "Achievements",
+    "beltProgress": "Belt progress",
+    "viewAllAchievements": "View all achievements",
+    "latestAchievements": "Latest achievements",
+    "noAchievements": "No achievements yet.",
+    "currentBelt": "Current belt",
+    "classes": "classes",
+    "beltProgressDetail": "{percent}% complete toward your next promotion."
+  },
+  "adminDashboard": {
+    "welcome": "Welcome back to your gym",
+    "actions": {
+      "createClass": "Create class",
+      "manageStudents": "Manage students"
+    },
+    "stats": {
+      "todaysClasses": "Today's classes",
+      "activeClasses": "active classes today",
+      "totalAttendance": "Total attendance",
+      "studentsToday": "students checked in today"
+    },
+    "classes": {
+      "title": "Today's classes",
+      "empty": "No classes scheduled for today."
+    }
+  },
+  "signIn": {
+    "title": "Login to your account",
+    "description": "Enter your email below to login to your account",
+    "emailLabel": "Email",
+    "emailPlaceholder": "m@example.com",
+    "passwordLabel": "Password",
+    "forgotPassword": "Forgot your password?",
+    "submit": "Login",
+    "submitting": "Logging in...",
+    "google": "Login with Google",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "unexpectedError": "An unexpected error occurred. Please try again.",
+    "invalidCredentials": "Invalid credentials"
+  },
+  "signUp": {
+    "title": "Create your own account",
+    "description": "Let's get you started with a new account",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "m@example.com",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm password",
+    "submit": "Sign up",
+    "submitting": "Creating account...",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "unexpectedError": "An unexpected error occurred. Please try again.",
+    "failedCreate": "Failed to create account"
+  },
+  "onboarding": {
+    "title": "Join the Platform",
+    "subtitle": "Choose how you'd like to get started",
+    "owner": {
+      "badge": "Gym Owner",
+      "title": "Create Gym",
+      "description": "Start your own BJJ academy management platform",
+      "cta": "Create your gym",
+      "bullets": [
+        "Manage classes and schedules",
+        "Invite and manage students",
+        "Track attendance and progress",
+        "Complete academy dashboard"
+      ]
+    },
+    "student": {
+      "badge": "Student",
+      "title": "Join Gym",
+      "description": "Students join through academy invitation or QR code",
+      "bullets": [
+        "Get invite from your academy",
+        "Scan QR code to join",
+        "Quick class check-in",
+        "Track your progress"
+      ],
+      "hint": "Ask your academy for an invitation link or QR code to join"
+    }
+  },
+  "achievementsPage": {
+    "badge": "Achievements",
+    "title": "Trophies for {gymName}",
+    "subtitle": "Track your progress and unlock rewards as you keep attending classes.",
+    "earned": "Earned",
+    "available": "Available",
+    "completion": "Completion",
+    "allTrophies": "All trophies",
+    "earnedLabel": "Earned",
+    "lockedLabel": "Locked",
+    "progress": "Progress",
+    "completed": "Completed",
+    "categories": {
+      "attendance": "Attendance",
+      "special": "Special",
+      "milestone": "Milestone"
+    }
+  },
+  "leaderboard": {
+    "badge": "Leaderboard",
+    "title": "Top performers · {timeFrame}",
+    "subtitle": "Attendance leaders for {gymName}",
+    "timeframes": {
+      "week": "This week",
+      "month": "This month",
+      "all": "All time"
+    },
+    "emptyTitle": "No data yet",
+    "emptyDescription": "We'll show the most active students here once classes have check-ins in this period.",
+    "ranks": {
+      "1": "Champion",
+      "2": "Runner up",
+      "3": "Third place"
+    },
+    "classesAttended": "{count, plural, one {class attended} other {classes attended}}"
+  },
+  "settingsAdvanced": {
+    "title": "Advanced settings",
+    "subtitle": "Dangerous actions for {gymName}.",
+    "deleteTitle": "Delete academy",
+    "deleteDescription": "Permanently remove this academy and all associated data.",
+    "deleteButton": "Delete academy",
+    "deleteDialogTitle": "Delete {gymName}?",
+    "deleteDialogDescription": "This action removes every class, membership, payment record, and invitation linked to this academy. It cannot be undone.",
+    "deleteCancel": "Cancel",
+    "deleteConfirm": "Delete",
+    "deleteHelp": "Deleting an academy will also remove all member access. Make sure you have exported any data you need before continuing."
+  },
+  "classDetails": {
+    "backFull": "Back to classes",
+    "backShort": "Back",
+    "classDetails": "Class details",
+    "editTime": "Edit time",
+    "edit": "Edit",
+    "editDialogTitle": "Edit Class time",
+    "editDialogDescription": "Update the start and end times for this class.",
+    "startTime": "Start time",
+    "endTime": "End time",
+    "cancel": "Cancel",
+    "save": "Save",
+    "showQr": "Show QR-Code",
+    "hideQr": "Hide QR-Code",
+    "finish": "Finish class",
+    "finishShort": "Finish",
+    "finishConfirmTitle": "Finish class",
+    "finishConfirmDescription": "This will calculate streaks and award them to all students who attended this class. This action cannot be undone.",
+    "finishConfirmAction": "Finish",
+    "cancelClass": "Cancel class",
+    "cancelClassShort": "Cancel",
+    "cancelConfirmTitle": "Cancel class",
+    "cancelConfirmDescription": "Are you sure you want to cancel this class? This action cannot be undone and all attendees will be notified.",
+    "keepClass": "Keep class",
+    "cancelConfirmAction": "Cancel class",
+    "statusFinished": "Finished",
+    "statusCanceled": "Canceled",
+    "coach": "Coach:",
+    "capacity": "Capacity",
+    "full": "Full",
+    "qrCardTitle": "QR Code for Student Check-ins",
+    "qrInstructionsTitle": "Instructions for Students:",
+    "qrSteps": [
+      "Open the academy app on your mobile device",
+      "Navigate to the Classes page",
+      "Tap \"Open QR Scanner\"",
+      "Point your camera at this QR code",
+      "You'll be automatically checked in once scanned"
+    ],
+    "qrNote": "Note: QR code is only valid 15 minutes before and after class start time.",
+    "attendanceTitle": "Attendance ({count})",
+    "selectStudentPlaceholder": "Select student",
+    "noStudentsAvailable": "No students available",
+    "allCheckedIn": "All students checked in",
+    "addManually": "Add manually",
+    "noAttendanceTitle": "No attendances yet",
+    "noAttendanceDescription": "Students will appear here when they check-in",
+    "student": "Student",
+    "belt": "Belt",
+    "actions": "Actions",
+    "removeAttendanceTitle": "Remove attendance",
+    "removeAttendanceDescription": "This will remove the student attendance to the class. Are you sure?",
+    "revoke": "Revoke"
+  },
+  "settingsBilling": {
+    "title": "Billing",
+    "subtitle": "Review payments and manage your gym subscription or trial.",
+    "paymentsTitle": "Payments",
+    "paymentsDescription": "Recent charges for your gym membership.",
+    "noStripe": "Stripe not configured.",
+    "noCustomer": "No Stripe customer found for this gym.",
+    "noPayments": "No payments yet. When charges occur, they will appear here.",
+    "date": "Date",
+    "description": "Description",
+    "status": "Status",
+    "amount": "Amount",
+    "defaultDescription": "Membership charge",
+    "unknown": "Unknown",
+    "membershipActions": {
+      "cancel": "Cancel subscription/trial",
+      "working": "Working..."
+    }
+  },
+  "settingsTraining": {
+    "title": "Training rules",
+    "subtitle": "Define requirements and guidance for each belt level.",
+    "beltTitle": "Belt requirements",
+    "beltDescription": "Configure techniques, attendance goals, and promotion rules per belt.",
+    "save": "Save",
+    "saving": "Saving...",
+    "classesRequired": "Classes required",
+    "ruleHelp": "Set to 0 to remove the rule. Students and admins will see this as guidance only; promotion stays manual."
+  },
+  "beltBadge": {
+    "label": {
+      "white": "White",
+      "grey-white": "Grey/White",
+      "grey": "Grey",
+      "grey-black": "Grey/Black",
+      "yellow-white": "Yellow/White",
+      "yellow": "Yellow",
+      "yellow-black": "Yellow/Back",
+      "orange-white": "Orange/White",
+      "orange": "Orange",
+      "orange-black": "Orange/Black",
+      "green-white": "Green/White",
+      "green": "Green",
+      "green-black": "Green/Black",
+      "blue": "Blue",
+      "purple": "Purple",
+      "brown": "Brown",
+      "black": "Black"
+    }
+  },
+  "classCard": {
+    "finished": "Finished",
+    "coach": "Coach:",
+    "full": "Full",
+    "manage": "Manage"
+  },
+  "studentsPage": {
+    "title": "Students",
+    "subtitle": "Manage your academy students and invitations",
+    "inviteTitle": "Academy Invite Link",
+    "inviteDescription": "Share this link for anyone to join your academy",
+    "enableInvites": "Enable Invites",
+    "inviteLabel": "Academy Invite Link",
+    "noStudents": "No students have joined this academy yet.",
+    "table": {
+      "name": "Name",
+      "belt": "Belt",
+      "status": "Status",
+      "actions": "Actions",
+      "notSet": "Not set",
+      "noPlan": "No plan",
+      "view": "View",
+      "markPaid": "Mark paid",
+      "updating": "Updating..."
+    }
+  },
+  "studentProfile": {
+    "breadcrumb": "Back to Students",
+    "title": "Student Profile",
+    "subtitle": "View student details and attendance history",
+    "membership": {
+      "title": "Membership",
+      "description": "Current status and plan details.",
+      "status": "Status",
+      "plan": "Plan",
+      "paymentMethod": "Payment Method",
+      "startDate": "Start Date",
+      "nextBilling": "Next Billing",
+      "billingCycle": "Billing Cycle"
+    },
+    "belt": {
+      "title": "Belt",
+      "description": "Current rank and progress.",
+      "notSet": "Not set",
+      "progressTitle": "Progress to next stripe",
+      "completed": "Completed",
+      "noRule": "No belt rule configured for this belt yet."
+    },
+    "progress": {
+      "title": "Promotion Progress",
+      "description": "Track progress toward next belt promotion"
+    }
+  },
+  "settingsGeneral": {
+    "title": "General settings",
+    "subtitle": "Manage basic preferences for your academy.",
+    "currencyTitle": "Currency",
+    "currencyLabel": "Default currency",
+    "currencyHint": "This will apply to new payments and plan prices.",
+    "save": "Save currency",
+    "saving": "Saving..."
+  },
+  "classesPage": {
+    "title": "Classes",
+    "createClass": "Create class",
+    "calendarView": "Calendar view",
+    "listView": "List view",
+    "checkInTitle": "Check-in with QR Code",
+    "checkInDescription": "Use the camera to scan QR codes and check into classes",
+    "openScanner": "Open QR Scanner",
+    "upcoming": "Upcoming",
+    "finished": "Finished",
+    "upcomingTitle": "Upcoming Classes",
+    "finishedTitle": "Finished Classes",
+    "noUpcomingTitle": "No classes scheduled",
+    "noUpcomingDescription": "There are no upcoming classes scheduled for this gym.",
+    "noFinishedTitle": "No classes finished",
+    "noFinishedDescription": "There are no finished classes scheduled for this gym."
+  },
+  "classes": {
+    "form": {
+      "title": "Create recurring classes",
+      "titleLabel": "Title",
+      "titlePlaceholder": "e.g. BJJ - Gi Class",
+      "modalityLabel": "Modality",
+      "modalityPlaceholder": "Select modality",
+      "modalityOptions": {
+        "gi": "Gi",
+        "nogi": "No-Gi",
+        "kids": "Kids",
+        "open_mat": "Open-mat"
+      },
+      "startDateLabel": "Start Date",
+      "endDateLabel": "End date",
+      "startDatePlaceholder": "Start date",
+      "endDatePlaceholder": "Pick end date",
+      "daysLabel": "Days of the week",
+      "days": {
+        "sunday": "Sunday",
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday"
+      },
+      "startAtLabel": "Start at",
+      "endAtLabel": "End at",
+      "capacityLabel": "Capacity (optional)",
+      "capacityPlaceholder": "e.g. 20",
+      "coachLabel": "Coach Name (optional)",
+      "coachPlaceholder": "e.g. John Doe",
+      "actions": {
+        "back": "Back to classes",
+        "submit": "Create Classes",
+        "submitting": "Creating..."
+      },
+      "titleRequired": "Title is required",
+      "startDateRequired": "Start date is required",
+      "endDateRequired": "End date is required",
+      "startTimeRequired": "Start time is required",
+      "endTimeRequired": "End time is required",
+      "modalityRequired": "Modality is required",
+      "selectAtLeastOneDay": "Select at least one day"
+    }
+  },
+  "gymNew": {
+    "step": "Step 1 of 1",
+    "title": "Create Your Gym",
+    "subtitle": "Let's set up your BJJ gym on the platform",
+    "detailsTitle": "Gym Details",
+    "detailsDescription": "This information will be used to create your academy profile",
+    "fields": {
+      "name": "Gym Name",
+      "namePlaceholder": "e.g., Gracie Barra Downtown",
+      "url": "Gym URL",
+      "urlPrefix": "gladia.app/gym",
+      "urlHint": "This will be your gym's unique URL for students to access",
+      "timezone": "Timezone",
+      "timezonePlaceholder": "Select your timezone",
+      "plan": "Subscription Plan"
+    },
+    "plans": {
+      "monthly": "Monthly",
+      "monthlyPrice": "€59",
+      "monthlyUnit": "month",
+      "annual": "Annual",
+      "annualPrice": "€588",
+      "annualUnit": "per year",
+      "annualNote": "(€49/month)",
+      "annualBadge": "Save 17%",
+      "trialNote": "All plans include 14-day free trial"
+    },
+    "actions": {
+      "submit": "Create Academy",
+      "submitting": "Creating Academy..."
+    },
+    "form": {
+      "gymNameMin": "Gym name must be at least 3 characters",
+      "gymNameMax": "Gym name must be at most 100 characters",
+      "slugMin": "Gym slug must be at least 3 characters",
+      "slugMax": "Gym slug must be at most 50 characters",
+      "slugRegex": "Gym slug can only contain letters, numbers, and hyphens",
+      "timezoneMandatory": "Please select a timezone"
+    }
+  },
+  "sidebar": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "classes": "Classes",
+      "students": "Students",
+      "leaderboard": "Leaderboard",
+      "achievements": "Achievements",
+      "settings": "Settings",
+      "general": "General",
+      "billing": "Billing",
+      "membership": "Membership",
+      "training": "Training",
+      "advanced": "Advanced"
+    },
+    "gymSwitcher": {
+      "label": "Gyms",
+      "empty": "You are not part of any academy yet."
+    },
+    "user": {
+      "logout": "Log out"
+    },
+    "languageSwitcher": {
+      "label": "Language",
+      "options": {
+        "en": "English",
+        "pt": "Portuguese"
+      },
+      "saving": "Saving language..."
+    }
+  }
+}

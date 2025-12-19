@@ -1,0 +1,23 @@
+{
+    "name": "@gladia-app/validation",
+    "version": "0.0.0",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "lint": "eslint . --max-warnings 0"
+    },
+    "dependencies": {
+        "zod": "^3.25.76"
+    },
+    "devDependencies": {
+        "@gladia-app/eslint-config": "workspace:*",
+        "@gladia-app/typescript-config": "workspace:*",
+        "typescript": "^5.9.3"
+    },
+    "exports": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+    }
+}

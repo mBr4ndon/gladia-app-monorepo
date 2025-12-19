@@ -1,16 +1,21 @@
 {
-  "extends": "@workspace/typescript-config/nextjs.json",
+  "extends": "@gladia-app/typescript-config/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@workspace/ui/*": ["../../packages/ui/src/*"]
+      "@/*": [
+        "./*"
+      ],
+      "@gladia-app/ui/*": [
+        "../../packages/ui/src/*"
+      ]
     },
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "noEmit": true
   },
   "include": [
     "next-env.d.ts",
@@ -19,5 +24,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1764624393329,
+      "tag": "0000_harsh_jigsaw",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1764624464798,
+      "tag": "0001_create-profiles-trigger",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1765154273486,
+      "tag": "0002_handy_bullseye",
+      "breakpoints": true
+    }
+  ]
+}

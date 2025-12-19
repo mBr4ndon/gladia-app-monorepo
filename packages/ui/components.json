@@ -11,10 +11,10 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@workspace/ui/components",
-    "utils": "@workspace/ui/lib/utils",
-    "hooks": "@workspace/ui/hooks",
-    "lib": "@workspace/ui/lib",
-    "ui": "@workspace/ui/components"
+    "components": "@gladia-app/ui/components",
+    "utils": "@gladia-app/ui/lib/utils",
+    "hooks": "@gladia-app/ui/hooks",
+    "lib": "@gladia-app/ui/lib",
+    "ui": "@gladia-app/ui/components"
   }
 }

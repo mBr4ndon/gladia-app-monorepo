@@ -1,0 +1,39 @@
+{
+    "name": "@gladia-app/db",
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "migrate": "drizzle-kit migrate",
+        "generate": "drizzle-kit generate",
+        "generate:custom": "drizzle-kit generate --custom",
+        "lint": "eslint . --max-warnings 0"
+    },
+    "dependencies": {
+        "@neondatabase/serverless": "^1.0.2",
+        "dotenv": "^17.2.3",
+        "drizzle-orm": "latest",
+        "drizzle-zod": "latest"
+    },
+    "devDependencies": {
+        "@gladia-app/eslint-config": "workspace:*",
+        "@gladia-app/typescript-config": "workspace:*",
+        "drizzle-kit": "latest",
+        "typescript": "^5.9.3"
+    },
+    "exports": {
+        "./auth-db": {
+            "types": "./dist/auth-db/index.d.ts",
+            "default": "./dist/auth-db/index.js"
+        },
+        "./queries": {
+            "types": "./dist/auth-db/queries.d.ts",
+            "default": "./dist/auth-db/queries.js"
+        },
+        "./schema": {
+            "types": "./dist/auth-db/schema.d.ts",
+            "default": "./dist/auth-db/schema.js"
+        }
+    }
+}

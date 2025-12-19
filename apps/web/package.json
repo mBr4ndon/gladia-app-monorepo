@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@gladia-app/web",
   "version": "0.0.1",
   "type": "module",
   "private": true,
@@ -12,20 +12,32 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@workspace/ui": "workspace:*",
+    "@gladia-app/auth": "workspace:*",
+    "@gladia-app/db": "workspace:*",
+    "@gladia-app/ui": "workspace:*",
+    "@gladia-app/validation": "workspace:*",
+    "@hookform/resolvers": "^5.2.2",
+    "date-fns": "^4.1.0",
     "lucide-react": "^0.475.0",
     "next": "^15.4.5",
+    "next-intl": "^3.26.5",
     "next-themes": "^0.4.6",
+    "qr-scanner": "^1.4.2",
+    "qrcode": "^1.5.4",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-hook-form": "^7.66.1",
+    "stripe": "^20.0.0",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@gladia-app/eslint-config": "workspace:^",
+    "@gladia-app/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^20.19.9",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
-    "@workspace/eslint-config": "workspace:^",
-    "@workspace/typescript-config": "workspace:*",
     "eslint": "^9.32.0",
     "typescript": "^5.9.2"
   }

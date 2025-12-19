@@ -1,0 +1,441 @@
+{
+    "dashboard": {
+      "title": "Perfil do Aluno",
+      "subtitle": "Veja os detalhes do aluno e o histórico de presença",
+      "streak": "Sequência atual",
+      "totalClasses": "Total de aulas",
+      "achievements": "Conquistas",
+      "beltProgress": "Progresso da faixa",
+      "viewAllAchievements": "Ver todas as conquistas",
+      "latestAchievements": "Últimas conquistas",
+      "noAchievements": "Nenhuma conquista ainda.",
+      "currentBelt": "Faixa atual",
+      "classes": "aulas",
+      "beltProgressDetail": "{percent}% concluído rumo à próxima graduação."
+    },
+    "adminDashboard": {
+      "welcome": "Bem-vindo de volta à sua academia",
+      "actions": {
+        "createClass": "Criar aula",
+        "manageStudents": "Gerenciar alunos"
+      },
+      "stats": {
+        "todaysClasses": "Aulas de hoje",
+        "activeClasses": "aulas ativas hoje",
+        "totalAttendance": "Presenças totais",
+        "studentsToday": "alunos presentes hoje"
+      },
+      "classes": {
+        "title": "Aulas de hoje",
+        "empty": "Nenhuma aula agendada para hoje."
+      }
+    },
+    "signIn": {
+      "title": "Entrar na sua conta",
+      "description": "Informe seu e-mail abaixo para entrar na sua conta",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "m@exemplo.com",
+      "passwordLabel": "Senha",
+      "forgotPassword": "Esqueceu sua senha?",
+      "submit": "Entrar",
+      "submitting": "Entrando...",
+      "google": "Entrar com Google",
+      "noAccount": "Não tem uma conta?",
+      "signUp": "Criar conta",
+      "unexpectedError": "Ocorreu um erro inesperado. Tente novamente.",
+      "invalidCredentials": "Credenciais inválidas"
+    },
+    "signUp": {
+      "title": "Crie sua própria conta",
+      "description": "Vamos começar com uma nova conta",
+      "nameLabel": "Nome",
+      "namePlaceholder": "Seu nome",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "m@exemplo.com",
+      "passwordLabel": "Senha",
+      "confirmPasswordLabel": "Confirmar senha",
+      "submit": "Criar conta",
+      "submitting": "Criando conta...",
+      "haveAccount": "Já tem uma conta?",
+      "signIn": "Entrar",
+      "unexpectedError": "Ocorreu um erro inesperado. Tente novamente.",
+      "failedCreate": "Falha ao criar a conta"
+    },
+    "onboarding": {
+      "title": "Entrar na Plataforma",
+      "subtitle": "Escolha como você gostaria de começar",
+      "owner": {
+        "badge": "Proprietário da Academia",
+        "title": "Criar Academia",
+        "description": "Inicie sua própria plataforma de gestão de academia de BJJ",
+        "cta": "Criar sua academia",
+        "bullets": [
+          "Gerenciar aulas e horários",
+          "Convidar e gerenciar alunos",
+          "Acompanhar presença e progresso",
+          "Painel completo da academia"
+        ]
+      },
+      "student": {
+        "badge": "Aluno",
+        "title": "Entrar na Academia",
+        "description": "Alunos entram por convite da academia ou QR code",
+        "bullets": [
+          "Receba um convite da sua academia",
+          "Escaneie o QR code para entrar",
+          "Check-in rápido nas aulas",
+          "Acompanhe seu progresso"
+        ],
+        "hint": "Peça à sua academia um link de convite ou QR code para entrar"
+      }
+    },
+    "achievementsPage": {
+      "badge": "Conquistas",
+      "title": "Troféus de {gymName}",
+      "subtitle": "Acompanhe seu progresso e desbloqueie recompensas conforme continua frequentando as aulas.",
+      "earned": "Conquistados",
+      "available": "Disponíveis",
+      "completion": "Conclusão",
+      "allTrophies": "Todos os troféus",
+      "earnedLabel": "Conquistado",
+      "lockedLabel": "Bloqueado",
+      "progress": "Progresso",
+      "completed": "Concluído",
+      "categories": {
+        "attendance": "Presença",
+        "special": "Especial",
+        "milestone": "Marco"
+      }
+    },
+    "leaderboard": {
+      "badge": "Ranking",
+      "title": "Melhores desempenhos · {timeFrame}",
+      "subtitle": "Líderes de presença em {gymName}",
+      "timeframes": {
+        "week": "Esta semana",
+        "month": "Este mês",
+        "all": "Todo o período"
+      },
+      "emptyTitle": "Sem dados ainda",
+      "emptyDescription": "Mostraremos aqui os alunos mais ativos assim que houver check-ins neste período.",
+      "ranks": {
+        "1": "Campeão",
+        "2": "Vice-campeão",
+        "3": "Terceiro lugar"
+      },
+      "classesAttended": "{count, plural, one {aula frequentada} other {aulas frequentadas}}"
+    },
+    "settingsAdvanced": {
+      "title": "Configurações avançadas",
+      "subtitle": "Ações perigosas para {gymName}.",
+      "deleteTitle": "Excluir academia",
+      "deleteDescription": "Remover permanentemente esta academia e todos os dados associados.",
+      "deleteButton": "Excluir academia",
+      "deleteDialogTitle": "Excluir {gymName}?",
+      "deleteDialogDescription": "Esta ação remove todas as aulas, associações, registros de pagamento e convites vinculados a esta academia. Não pode ser desfeita.",
+      "deleteCancel": "Cancelar",
+      "deleteConfirm": "Excluir",
+      "deleteHelp": "Excluir uma academia também removerá o acesso de todos os membros. Certifique-se de exportar quaisquer dados necessários antes de continuar."
+    },
+    "classDetails": {
+      "backFull": "Voltar para aulas",
+      "backShort": "Voltar",
+      "classDetails": "Detalhes da aula",
+      "editTime": "Editar horário",
+      "edit": "Editar",
+      "editDialogTitle": "Editar horário da aula",
+      "editDialogDescription": "Atualize os horários de início e término desta aula.",
+      "startTime": "Horário de início",
+      "endTime": "Horário de término",
+      "cancel": "Cancelar",
+      "save": "Salvar",
+      "showQr": "Mostrar QR Code",
+      "hideQr": "Ocultar QR Code",
+      "finish": "Encerrar aula",
+      "finishShort": "Encerrar",
+      "finishConfirmTitle": "Encerrar aula",
+      "finishConfirmDescription": "Isso calculará as sequências e as concederá a todos os alunos que participaram desta aula. Esta ação não pode ser desfeita.",
+      "finishConfirmAction": "Encerrar",
+      "cancelClass": "Cancelar aula",
+      "cancelClassShort": "Cancelar",
+      "cancelConfirmTitle": "Cancelar aula",
+      "cancelConfirmDescription": "Tem certeza de que deseja cancelar esta aula? Esta ação não pode ser desfeita e todos os participantes serão notificados.",
+      "keepClass": "Manter aula",
+      "cancelConfirmAction": "Cancelar aula",
+      "statusFinished": "Encerrada",
+      "statusCanceled": "Cancelada",
+      "coach": "Professor:",
+      "capacity": "Capacidade",
+      "full": "Lotada",
+      "qrCardTitle": "QR Code para Check-in dos Alunos",
+      "qrInstructionsTitle": "Instruções para os alunos:",
+      "qrSteps": [
+        "Abra o app da academia no seu dispositivo móvel",
+        "Vá para a página de Aulas",
+        "Toque em \"Abrir leitor de QR\"",
+        "Aponte a câmera para este QR code",
+        "O check-in será feito automaticamente após a leitura"
+      ],
+      "qrNote": "Observação: o QR code é válido apenas 15 minutos antes e depois do início da aula.",
+      "attendanceTitle": "Presenças ({count})",
+      "selectStudentPlaceholder": "Selecionar aluno",
+      "noStudentsAvailable": "Nenhum aluno disponível",
+      "allCheckedIn": "Todos os alunos com check-in",
+      "addManually": "Adicionar manualmente",
+      "noAttendanceTitle": "Nenhuma presença ainda",
+      "noAttendanceDescription": "Os alunos aparecerão aqui quando fizerem check-in",
+      "student": "Aluno",
+      "belt": "Faixa",
+      "actions": "Ações",
+      "removeAttendanceTitle": "Remover presença",
+      "removeAttendanceDescription": "Isso removerá a presença do aluno nesta aula. Tem certeza?",
+      "revoke": "Revogar"
+    },
+    "settingsBilling": {
+      "title": "Faturamento",
+      "subtitle": "Revise pagamentos e gerencie a assinatura ou período de teste da sua academia.",
+      "paymentsTitle": "Pagamentos",
+      "paymentsDescription": "Cobranças recentes da assinatura da sua academia.",
+      "noStripe": "Stripe não configurado.",
+      "noCustomer": "Nenhum cliente Stripe encontrado para esta academia.",
+      "noPayments": "Nenhum pagamento ainda. Quando houver cobranças, elas aparecerão aqui.",
+      "date": "Data",
+      "description": "Descrição",
+      "status": "Status",
+      "amount": "Valor",
+      "defaultDescription": "Cobrança de assinatura",
+      "unknown": "Desconhecido",
+      "membershipActions": {
+        "cancel": "Cancelar assinatura/período de teste",
+        "working": "Processando..."
+      }
+    },
+    "settingsTraining": {
+      "title": "Regras de treinamento",
+      "subtitle": "Defina requisitos e orientações para cada nível de faixa.",
+      "beltTitle": "Requisitos de faixa",
+      "beltDescription": "Configure técnicas, metas de presença e regras de graduação por faixa.",
+      "save": "Salvar",
+      "saving": "Salvando...",
+      "classesRequired": "Aulas necessárias",
+      "ruleHelp": "Defina como 0 para remover a regra. Alunos e administradores verão isso apenas como orientação; a graduação permanece manual."
+    },
+    "beltBadge": {
+        "label": {
+            "white": "Branca",
+            "grey-white": "Cinza/Branca",
+            "grey": "Cinza",
+            "grey-black": "Cinza/Preta",
+            "yellow-white": "Amarela/Branca",
+            "yellow": "Amarela",
+            "yellow-black": "Amarela/Preta",
+            "orange-white": "Laranja/Branca",
+            "orange": "Laranja",
+            "orange-black": "Laranja/Preta",
+            "green-white": "Verde/Branca",
+            "green": "Verde",
+            "green-black": "Verde/Preta",
+            "blue": "Azul",
+            "purple": "Roxa",
+            "brown": "Marrom",
+            "black": "Preta"
+        }
+    },
+    "studentProfile": {
+        "breadcrumb": "Voltar para Alunos",
+        "title": "Perfil do Aluno",
+        "subtitle": "Veja os detalhes do aluno e o histórico de presença",
+        "membership": {
+            "title": "Associação",
+            "description": "Status atual e detalhes do plano.",
+            "status": "Status",
+            "plan": "Plano",
+            "paymentMethod": "Forma de pagamento",
+            "startDate": "Data de início",
+            "nextBilling": "Próxima cobrança",
+            "billingCycle": "Ciclo de cobrança"
+        },
+        "belt": {
+            "title": "Faixa",
+            "description": "Graduação atual e progresso.",
+            "notSet": "Não definida",
+            "progressTitle": "Progresso para a próxima graduação",
+            "completed": "Concluído",
+            "noRule": "Nenhuma regra de faixa configurada para esta graduação ainda."
+        },
+        "progress": {
+            "title": "Progresso de Graduação",
+            "description": "Acompanhe o progresso rumo à próxima troca de faixa"
+        }
+    },
+    "settingsGeneral": {
+      "title": "Configurações gerais",
+      "subtitle": "Gerencie preferências básicas da sua academia.",
+      "currencyTitle": "Moeda",
+      "currencyLabel": "Moeda padrão",
+      "currencyHint": "Isso será aplicado a novos pagamentos e preços de planos.",
+      "save": "Salvar moeda",
+      "saving": "Salvando..."
+    },
+    "classCard": {
+        "finished": "Encerrada",
+        "coach": "Professor:",
+        "full": "Lotada",
+        "manage": "Gerenciar"
+    },
+    "studentsPage": {
+        "title": "Alunos",
+        "subtitle": "Gerencie os alunos e convites da sua academia",
+        "inviteTitle": "Link de Convite da Academia",
+        "inviteDescription": "Compartilhe este link para que qualquer pessoa possa entrar na sua academia",
+        "enableInvites": "Ativar convites",
+        "inviteLabel": "Link de Convite da Academia",
+        "noStudents": "Nenhum aluno entrou nesta academia ainda.",
+        "table": {
+            "name": "Nome",
+            "belt": "Faixa",
+            "status": "Status",
+            "actions": "Ações",
+            "notSet": "Não definido",
+            "noPlan": "Sem plano",
+            "view": "Ver",
+            "markPaid": "Marcar como pago",
+            "updating": "Atualizando..."
+        }
+    },
+    "classesPage": {
+      "title": "Aulas",
+      "createClass": "Criar aula",
+      "calendarView": "Visualização em calendário",
+      "listView": "Visualização em lista",
+      "checkInTitle": "Check-in com QR Code",
+      "checkInDescription": "Use a câmera para escanear QR codes e fazer check-in nas aulas",
+      "openScanner": "Abrir leitor de QR",
+      "upcoming": "Próximas",
+      "finished": "Encerradas",
+      "upcomingTitle": "Próximas aulas",
+      "finishedTitle": "Aulas encerradas",
+      "noUpcomingTitle": "Nenhuma aula agendada",
+      "noUpcomingDescription": "Não há aulas futuras agendadas para esta academia.",
+      "noFinishedTitle": "Nenhuma aula encerrada",
+      "noFinishedDescription": "Não há aulas encerradas registradas para esta academia."
+    },
+    "classes": {
+      "form": {
+        "title": "Criar aulas recorrentes",
+        "titleLabel": "Título",
+        "titlePlaceholder": "ex.: BJJ - Aula com Kimono",
+        "modalityLabel": "Modalidade",
+        "modalityPlaceholder": "Selecionar modalidade",
+        "modalityOptions": {
+          "gi": "Gi",
+          "nogi": "No-Gi",
+          "kids": "Infantil",
+          "open_mat": "Open Mat"
+        },
+        "startDateLabel": "Data de início",
+        "endDateLabel": "Data de término",
+        "startDatePlaceholder": "Data de início",
+        "endDatePlaceholder": "Escolher data de término",
+        "daysLabel": "Dias da semana",
+        "days": {
+          "sunday": "Domingo",
+          "monday": "Segunda-feira",
+          "tuesday": "Terça-feira",
+          "wednesday": "Quarta-feira",
+          "thursday": "Quinta-feira",
+          "friday": "Sexta-feira",
+          "saturday": "Sábado"
+        },
+        "startAtLabel": "Início",
+        "endAtLabel": "Término",
+        "capacityLabel": "Capacidade (opcional)",
+        "capacityPlaceholder": "ex.: 20",
+        "coachLabel": "Nome do professor (opcional)",
+        "coachPlaceholder": "ex.: João Silva",
+        "actions": {
+          "back": "Voltar para aulas",
+          "submit": "Criar aulas",
+          "submitting": "Criando..."
+        },
+        "titleRequired": "O título é obrigatório",
+        "startDateRequired": "A data de início é obrigatória",
+        "endDateRequired": "A data de término é obrigatória",
+        "startTimeRequired": "O horário de início é obrigatório",
+        "endTimeRequired": "O horário de término é obrigatório",
+        "modalityRequired": "A modalidade é obrigatória",
+        "selectAtLeastOneDay": "Selecione pelo menos um dia"
+      }
+    },
+    "gymNew": {
+      "step": "Passo 1 de 1",
+      "title": "Criar sua Academia",
+      "subtitle": "Vamos configurar sua academia de BJJ na plataforma",
+      "detailsTitle": "Detalhes da Academia",
+      "detailsDescription": "Essas informações serão usadas para criar o perfil da sua academia",
+      "fields": {
+        "name": "Nome da Academia",
+        "namePlaceholder": "ex.: Gracie Barra Centro",
+        "url": "URL da Academia",
+        "urlPrefix": "gladia.app/gym",
+        "urlHint": "Esta será a URL exclusiva da sua academia para acesso dos alunos",
+        "timezone": "Fuso horário",
+        "timezonePlaceholder": "Selecione seu fuso horário",
+        "plan": "Plano de Assinatura"
+      },
+      "plans": {
+        "monthly": "Mensal",
+        "monthlyPrice": "€59",
+        "monthlyUnit": "mês",
+        "annual": "Anual",
+        "annualPrice": "€588",
+        "annualUnit": "por ano",
+        "annualNote": "(€49/mês)",
+        "annualBadge": "Economize 17%",
+        "trialNote": "Todos os planos incluem 14 dias de teste grátis"
+      },
+      "actions": {
+        "submit": "Criar Academia",
+        "submitting": "Criando Academia..."
+      },
+      "form": {
+        "gymNameMin": "O nome da academia deve ter pelo menos 3 caracteres",
+        "gymNameMax": "O nome da academia deve ter no máximo 100 caracteres",
+        "slugMin": "O slug da academia deve ter pelo menos 3 caracteres",
+        "slugMax": "O slug da academia deve ter no máximo 50 caracteres",
+        "slugRegex": "O slug da academia pode conter apenas letras, números e hífens",
+        "timezoneMandatory": "Selecione um fuso horário"
+      }
+    },
+    "sidebar": {
+      "nav": {
+        "dashboard": "Painel",
+        "classes": "Aulas",
+        "students": "Alunos",
+        "leaderboard": "Ranking",
+        "achievements": "Conquistas",
+        "settings": "Configurações",
+        "general": "Geral",
+        "billing": "Faturamento",
+        "membership": "Associação",
+        "training": "Treinamento",
+        "advanced": "Avançado"
+      },
+      "gymSwitcher": {
+        "label": "Academias",
+        "empty": "Você ainda não faz parte de nenhuma academia."
+      },
+      "user": {
+        "logout": "Sair"
+      },
+      "languageSwitcher": {
+        "label": "Idioma",
+        "options": {
+          "en": "Inglês",
+          "pt": "Português"
+        },
+        "saving": "Salvando idioma..."
+      }
+    }
+  }
+ 

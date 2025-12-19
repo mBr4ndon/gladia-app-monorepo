@@ -1,0 +1,33 @@
+{
+    "name": "@gladia-app/auth",
+    "version": "0.0.0",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "lint": "eslint . --max-warnings 0"
+    },
+    "dependencies": {
+        "@gladia-app/db": "workspace:*",
+        "better-auth": "^1.3.34",
+        "dotenv": "^17.2.3",
+        "server-only": "^0.0.1"
+    },
+    "devDependencies": {
+        "@gladia-app/eslint-config": "workspace:*",
+        "@gladia-app/typescript-config": "workspace:*",
+        "@types/node": "^20.19.9",
+        "typescript": "^5.9.3"
+    },
+    "exports": {
+        "./server": {
+            "types": "./dist/server.d.ts",
+            "default": "./dist/server.js"
+        },
+        "./client": {
+            "types": "./dist/client.d.ts",
+            "default": "./dist/client.js"
+        }
+    }
+}

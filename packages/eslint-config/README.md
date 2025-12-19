@@ -1,3 +1,3 @@
-# `@workspace/eslint-config`
+# `@gladia-app/eslint-config`
 
 Shared eslint configuration for the workspace.
