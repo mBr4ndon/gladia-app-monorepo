@@ -3,7 +3,7 @@ name: Validate and Deploy to Dev
 on:
   push:
     branches:
-      - develop
+      - "**"
   workflow_dispatch:
 
 jobs:
@@ -35,7 +35,6 @@ jobs:
 
   deploy-dev:
     needs: validate
-    if: github.ref == 'refs/heads/develop' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment:
       name: dev
