@@ -46,15 +46,12 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              // 🔑 Aqui adicionámos `blob:` para permitir workers via blob:
               "script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: https://accounts.google.com https://apis.google.com",
               "style-src 'self' 'unsafe-inline' https://accounts.google.com",
-              // opcionalmente adicionamos blob: aqui também (não faz mal e evita chatices)
               "img-src 'self' data: blob: https://*.googleusercontent.com https://accounts.google.com",
               "connect-src 'self' https://accounts.google.com https://play.google.com https://apis.google.com",
               "frame-src 'self' https://accounts.google.com",
               "font-src 'self' data:",
-              // 👇 ESTA LINHA É A MAIS IMPORTANTE PARA O ERRO:
               "worker-src 'self' blob:",
             ].join("; "),
           }

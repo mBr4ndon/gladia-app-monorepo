@@ -16,6 +16,13 @@ export async function createRecurringClassesAction(
     rawData: CreateClassesData,
     gymId: string,
 ) {
+    const modalityMap: Record<CreateClassesData["modality"], typeof classe.$inferInsert["modality"]> = {
+        gi: "gi",
+        nogi: "no_gi",
+        kids: "kids",
+        open_mat: "open_mat",
+    };
+
     const session = await auth.api.getSession({
         headers: await headers(),
     });
@@ -44,7 +51,7 @@ export async function createRecurringClassesAction(
             date: date.toISOString(),
             startAt: data.startAt,
             endAt: data.endAt,
-            modality: data.modality,
+            modality: modalityMap[data.modality],
             capacity: data.capacity
                 ? parseInt(data.capacity, 10)
                 : null,
