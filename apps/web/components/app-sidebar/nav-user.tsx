@@ -1,14 +1,11 @@
 "use client"
 
 import {
-  BadgeCheck,
-  Bell,
   ChevronsUpDown,
-  CreditCard,
-  LogOut,
-  Sparkles,
+  LogOut
 } from "lucide-react";
 
+import { createAuthClient } from "@gladia-app/auth/client";
 import { ProfileWithMemberships } from "@gladia-app/db/queries";
 import {
   Avatar,
@@ -18,11 +15,10 @@ import {
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
+  DropdownMenuTrigger
 } from "@gladia-app/ui/components/dropdown-menu";
 import {
   SidebarMenu,
@@ -30,9 +26,8 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@gladia-app/ui/components/sidebar";
-import { createAuthClient } from "@gladia-app/auth/client";
-import { redirect } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { redirect } from "next/navigation";
 
 export function NavUser({
   user,

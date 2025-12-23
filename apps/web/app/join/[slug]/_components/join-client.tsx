@@ -26,8 +26,6 @@ type Props = {
     hasBelt: boolean;
 };
 
-const BELTS = ["White", "Blue", "Purple", "Brown", "Black"];
-
 export function JoinPageClient({
     isAuthenticated,
     gymName,
