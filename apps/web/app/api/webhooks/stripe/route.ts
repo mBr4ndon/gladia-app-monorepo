@@ -13,24 +13,32 @@ export async function POST(req: Request) {
   const sig = req.headers.get("stripe-signature");
 
   if (!sig) {
+    console.error("[stripe-webhook] Missing signature header");
     return new NextResponse("No signature", { status: 400 });
   }
 
   const rawBody = await req.text();
+  console.log("[stripe-webhook] Raw body length", rawBody.length);
 
   let event: Stripe.Event;
 
   try {
     event = stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
   } catch (err) {
-    console.error("Webhook signature verification failed.", err);
+    console.error("[stripe-webhook] Signature verification failed", err);
     return new NextResponse("Webhook Error", { status: 400 });
   }
+
+  console.log("[stripe-webhook] Event received", {
+    id: event.id,
+    type: event.type,
+  });
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
 
     const metadata = session.metadata || {};
+    console.log("[stripe-webhook] Checkout session metadata", metadata);
 
     const userId = metadata.user_id;
     const gymName = metadata.gym_name;
@@ -49,12 +57,12 @@ export async function POST(req: Request) {
         : (session.subscription as any)?.id;
 
     if (!userId || !gymName || !slug || !timezone || !planType) {
-        console.error("Missing required metadata:", metadata);
+        console.error("[stripe-webhook] Missing required metadata:", metadata);
         return new NextResponse("Missing metadata", { status: 200 });
     }
     
     if (!stripeCustomerId || !stripeSubscriptionId) {
-        console.error("Missing Stripe IDs:", {
+        console.error("[stripe-webhook] Missing Stripe IDs:", {
             stripeCustomerId,
             stripeSubscriptionId,
         });
@@ -67,6 +75,10 @@ export async function POST(req: Request) {
         });
 
         if (existingSubscription) {
+            console.log("[stripe-webhook] Subscription already exists, skipping", {
+                stripeCustomerId,
+                stripeSubscriptionId,
+            });
             return new NextResponse("OK", { status: 200 });
         }
 
@@ -80,7 +92,13 @@ export async function POST(req: Request) {
             inviteTokenUpdatedAt: new Date(),
         }).returning();
 
+        console.log("[stripe-webhook] Created gym", newGym[0]);
+
         const stripeSubscription = await stripe.subscriptions.retrieve(stripeSubscriptionId);
+        console.log("[stripe-webhook] Retrieved Stripe subscription", {
+            id: stripeSubscription.id,
+            status: stripeSubscription.status,
+        });
 
         await authDb.insert(subscription).values({
             userId: userId,
@@ -101,8 +119,15 @@ export async function POST(req: Request) {
             gymId: newGym[0]!.id,
             role: "admin",
         });
+
+        console.log("[stripe-webhook] Created subscription and membership", {
+            gymId: newGym[0]!.id,
+            userId,
+            stripeCustomerId,
+            stripeSubscriptionId,
+        });
     } catch (err) {
-        console.error("Error creating academy/membership:", err);
+        console.error("[stripe-webhook] Error creating academy/membership:", err);
     }
   }
 
