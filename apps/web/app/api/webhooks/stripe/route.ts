@@ -20,6 +20,7 @@ export async function POST(req: Request) {
   const rawBody = Buffer.from(await req.arrayBuffer());
   console.log("[stripe-webhook] Raw body length", rawBody.length);
   console.log("[stripe-webhook] Stripe signature header", sig);
+  console.log("[stripe-webhook] Cenas", endpointSecret);
 
   let event: Stripe.Event;
 
