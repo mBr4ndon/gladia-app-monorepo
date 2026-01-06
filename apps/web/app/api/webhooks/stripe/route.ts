@@ -1,7 +1,7 @@
 import { authDb } from "@gladia-app/db/auth-db";
+import { gym, membership, subscription } from "@gladia-app/db/schema";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { gym, membership, payment, subscription } from "@gladia-app/db/schema";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2025-11-17.clover",
@@ -17,8 +17,9 @@ export async function POST(req: Request) {
     return new NextResponse("No signature", { status: 400 });
   }
 
-  const rawBody = await req.text();
+  const rawBody = Buffer.from(await req.arrayBuffer());
   console.log("[stripe-webhook] Raw body length", rawBody.length);
+  console.log("[stripe-webhook] Stripe signature header", sig);
 
   let event: Stripe.Event;
 
