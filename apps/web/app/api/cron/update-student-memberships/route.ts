@@ -5,6 +5,8 @@ export async function GET(req: NextRequest) {
     const authHeader = req.headers.get("authorization");
     const expected = process.env.VERCEL_CRON_SECRET;
 
+    console.log("[test] ", authHeader);
+
     if (!expected || authHeader?.trim() !== `Bearer ${expected}`) {
         return new NextResponse("Unauthorized", { status: 401 });
     }    
