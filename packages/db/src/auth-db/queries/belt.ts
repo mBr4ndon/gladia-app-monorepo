@@ -1,7 +1,7 @@
-import { and, eq } from "drizzle-orm";
+import { and, asc, eq } from "drizzle-orm";
 import { authDb } from "..";
-import { beltPromotionRule } from "../schema";
-import { BeltPromotionRuleRow } from "../types";
+import { beltPromotion, beltPromotionRule, profile } from "../schema";
+import { BeltPromotionRuleRow, BeltPromotionRow } from "../types";
 
 export async function getBeltPromotionRulesByGym(
     gymId: string,
@@ -43,4 +43,45 @@ export async function upsertBeltPromotionRule(
         belt,
         requiredClasses,
     });
+}
+
+export async function getBeltPromotionsByUserGym(
+    gymId: string,
+    userId: string,
+): Promise<BeltPromotionRow[]> {
+    return authDb
+        .select()
+        .from(beltPromotion)
+        .where(and(eq(beltPromotion.gymId, gymId), eq(beltPromotion.userId, userId)))
+        .orderBy(asc(beltPromotion.promotedAt));
+}
+
+export async function recordBeltPromotion({
+    gymId,
+    userId,
+    promotedBy,
+    previousBelt,
+    newBelt,
+    notes,
+}: {
+    gymId: string;
+    userId: string;
+    promotedBy: string;
+    previousBelt: string | null;
+    newBelt: string;
+    notes?: string | null;
+}): Promise<void> {
+    await authDb.insert(beltPromotion).values({
+        gymId,
+        userId,
+        promotedBy,
+        previousBelt,
+        newBelt,
+        notes: notes ?? null,
+    });
+
+    await authDb
+        .update(profile)
+        .set({ belt: newBelt })
+        .where(eq(profile.userId, userId));
 }

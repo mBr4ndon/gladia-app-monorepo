@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@gladia-app/ui/compone
 import { Label } from "@gladia-app/ui/components/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@gladia-app/ui/components/select";
 import { assignStudentMembershipAction } from "../actions";
+import { useTranslations } from "next-intl";
 
 type StudentOption = {
     id: string;
@@ -24,6 +25,7 @@ type Props = {
 };
 
 export function StudentMembershipForm({ slug, students, plans }: Props) {
+    const t = useTranslations("settingsMembership");
     const [isPending, startTransition] = useTransition();
     const [studentId, setStudentId] = useState("");
     const [planId, setPlanId] = useState("");
@@ -38,15 +40,15 @@ export function StudentMembershipForm({ slug, students, plans }: Props) {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Assign plan to student</CardTitle>
+                <CardTitle>{t("studentForm.title")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
                 <div className="grid gap-3 sm:grid-cols-2">
                     <div className="space-y-2">
-                        <Label>Student</Label>
+                        <Label>{t("studentForm.studentLabel")}</Label>
                         <Select value={studentId} onValueChange={setStudentId} disabled={isPending}>
                             <SelectTrigger>
-                                <SelectValue placeholder="Select student" />
+                                <SelectValue placeholder={t("studentForm.studentPlaceholder")} />
                             </SelectTrigger>
                             <SelectContent>
                                 {students.map((s) => (
@@ -58,10 +60,10 @@ export function StudentMembershipForm({ slug, students, plans }: Props) {
                         </Select>
                     </div>
                     <div className="space-y-2">
-                        <Label>Plan</Label>
+                        <Label>{t("studentForm.planLabel")}</Label>
                         <Select value={planId} onValueChange={setPlanId} disabled={isPending}>
                             <SelectTrigger>
-                                <SelectValue placeholder="Select plan" />
+                                <SelectValue placeholder={t("studentForm.planPlaceholder")} />
                             </SelectTrigger>
                             <SelectContent>
                                 {plans.map((p) => (
@@ -75,7 +77,7 @@ export function StudentMembershipForm({ slug, students, plans }: Props) {
                 </div>
 
                 <Button onClick={handleAssign} disabled={isPending || !studentId || !planId}>
-                    {isPending ? "Assigning..." : "Assign plan"}
+                    {isPending ? t("studentForm.assigning") : t("studentForm.assign")}
                 </Button>
             </CardContent>
         </Card>

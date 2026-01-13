@@ -6,17 +6,19 @@ import { Progress } from "@gladia-app/ui/components/progress";
 import { Button } from "@gladia-app/ui/components/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@gladia-app/ui/components/avatar";
 import { CalendarDays, GraduationCap, ArrowLeft, CreditCard, TrendingUp, LineChart } from "lucide-react";
-import { getAttendanceStatsForUserGym, getBeltPromotionRulesByGym, getProfileWithMembershipsById, getStudentMembershipWithPlan } from "@gladia-app/db/queries";
+import { getAttendanceStatsForUserGym, getBeltPromotionRulesByGym, getBeltPromotionsByUserGym, getProfileWithMembershipsById, getStudentMembershipWithPlan } from "@gladia-app/db/queries";
 import { BeltBadge } from "@/components/belt-badge";
 import { requireAdminGymMembership } from "@/lib/utils";
 import { getTranslations } from "next-intl/server";
+import { format } from "date-fns";
+import { BeltPromotionCard } from "./_components/belt-promotion-card";
 
 type Props = {
     params: Promise<{ slug: string; studentId: string }>;
 };
 
-const formatDate = (date?: string | null) =>
-    date ? new Date(date).toLocaleDateString() : "—";
+const formatDate = (date?: string | Date | null) =>
+    date ? format(new Date(date), "dd MMM yyyy") : "—";
 
 export default async function StudentProfilePage({ params }: Props) {
     const { slug, studentId } = await params;
@@ -37,10 +39,11 @@ export default async function StudentProfilePage({ params }: Props) {
         notFound();
     }
 
-    const [attendanceStats, beltRules, studentMembershipDetail] = await Promise.all([
+    const [attendanceStats, beltRules, studentMembershipDetail, beltPromotions] = await Promise.all([
         getAttendanceStatsForUserGym(adminMembership.gymId, studentId),
         getBeltPromotionRulesByGym(adminMembership.gymId),
         getStudentMembershipWithPlan(adminMembership.gymId, studentId),
+        getBeltPromotionsByUserGym(adminMembership.gymId, studentId),
     ]);
 
     const currentBelt = studentProfile.profile.belt;
@@ -56,7 +59,7 @@ export default async function StudentProfilePage({ params }: Props) {
 
     const membershipStatus = studentMembershipDetail?.membership.status ?? "unknown";
     const nextBillingDate = studentMembershipDetail?.membership.nextBillingDate
-        ? new Date(studentMembershipDetail.membership.nextBillingDate).toLocaleDateString()
+        ? formatDate(studentMembershipDetail.membership.nextBillingDate)
         : null;
     const startDate = studentMembershipDetail?.membership.startDate ?? null;
     const paymentMethod = studentMembershipDetail?.membership.paymentMethod ?? "manual";
@@ -191,6 +194,56 @@ export default async function StudentProfilePage({ params }: Props) {
                     )}
                 </CardContent>
             </Card>
+
+            {beltPromotions.length > 0 && (
+                <Card className="bg-card/90 shadow-lg shadow-primary/5 border-primary/10">
+                    <CardHeader>
+                        <CardTitle>{t("promotionTimeline.title")}</CardTitle>
+                        <CardDescription>{t("promotionTimeline.description")}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="relative pl-6">
+                            <div className="absolute left-2 top-2 bottom-2 w-px bg-border" />
+                            <div className="space-y-6">
+                                {beltPromotions.map((promotion) => (
+                                    <div key={promotion.id} className="relative">
+                                        <span className="absolute left-0 top-1.5 h-2 w-2 rounded-full bg-primary" />
+                                        <div className="space-y-2 pl-4">
+                                            <span className="text-xs text-muted-foreground">
+                                                {formatDate(promotion.promotedAt)}
+                                            </span>
+                                            <div className="flex flex-wrap items-center gap-2 text-sm">
+                                                {promotion.previousBelt ? (
+                                                    <>
+                                                        <span className="text-muted-foreground">
+                                                            {t("promotionTimeline.promotedFrom")}
+                                                        </span>
+                                                        <BeltBadge belt={promotion.previousBelt} />
+                                                        <span className="text-muted-foreground">
+                                                            {t("promotionTimeline.to")}
+                                                        </span>
+                                                    </>
+                                                ) : (
+                                                    <span className="text-muted-foreground">
+                                                        {t("promotionTimeline.startedAt")}
+                                                    </span>
+                                                )}
+                                                <BeltBadge belt={promotion.newBelt} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            )}
+
+            <BeltPromotionCard
+                slug={slug}
+                studentId={studentId}
+                currentBelt={currentBelt ?? null}
+            />
         </div>
     );
 }

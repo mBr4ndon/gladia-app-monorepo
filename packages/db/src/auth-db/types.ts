@@ -1,4 +1,4 @@
-import { achievement, achievementType, attendance, beltPromotionRule, classe, gym, membership, membershipPlan, payment, profile, subscription, studentMembership } from "./schema";
+import { achievement, achievementType, attendance, beltPromotion, beltPromotionRule, classe, gym, membership, membershipPlan, payment, profile, subscription, studentMembership } from "./schema";
 
 export type GymRow = typeof gym.$inferSelect;
 export type MembershipRow = typeof membership.$inferSelect;
@@ -10,6 +10,7 @@ export type AchievementTypeRow = typeof achievementType.$inferSelect;
 export type MembershipPlanRow = typeof membershipPlan.$inferSelect;
 export type PaymentRow = typeof payment.$inferSelect;
 export type BeltPromotionRuleRow = typeof beltPromotionRule.$inferSelect;
+export type BeltPromotionRow = typeof beltPromotion.$inferSelect;
 export type SubscriptionRow = typeof subscription.$inferSelect;
 export type StudentMembershipRow = typeof studentMembership.$inferSelect;
 

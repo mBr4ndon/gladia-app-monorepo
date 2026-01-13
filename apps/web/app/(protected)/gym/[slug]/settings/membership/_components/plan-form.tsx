@@ -7,6 +7,7 @@ import { Input } from "@gladia-app/ui/components/input";
 import { Label } from "@gladia-app/ui/components/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@gladia-app/ui/components/select";
 import { createMembershipPlanAction } from "../actions";
+import { useTranslations } from "next-intl";
 
 type Props = {
     slug: string;
@@ -14,6 +15,7 @@ type Props = {
 };
 
 export function PlanForm({ slug, defaultCurrency }: Props) {
+    const t = useTranslations("settingsMembership");
     const [isPending, startTransition] = useTransition();
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -52,33 +54,35 @@ export function PlanForm({ slug, defaultCurrency }: Props) {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Create membership plan</CardTitle>
+                <CardTitle>{t("planForm.title")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
                 <div className="space-y-2">
-                    <Label htmlFor="plan-name">Name</Label>
+                    <Label htmlFor="plan-name">{t("planForm.nameLabel")}</Label>
                     <Input
                         id="plan-name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="e.g. Unlimited Monthly"
+                        placeholder={t("planForm.namePlaceholder")}
                         disabled={isPending}
                     />
                 </div>
 
                 <div className="space-y-2">
-                    <Label htmlFor="plan-description">Description</Label>
+                    <Label htmlFor="plan-description">{t("planForm.descriptionLabel")}</Label>
                     <Input
                         id="plan-description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        placeholder="Optional"
+                        placeholder={t("planForm.descriptionPlaceholder")}
                         disabled={isPending}
                     />
                 </div>
 
                 <div className="space-y-2">
-                    <Label htmlFor="plan-price">Price ({defaultCurrency.toUpperCase()})</Label>
+                    <Label htmlFor="plan-price">
+                        {t("planForm.priceLabel", { currency: defaultCurrency.toUpperCase() })}
+                    </Label>
                     <Input
                         id="plan-price"
                         type="number"
@@ -92,7 +96,7 @@ export function PlanForm({ slug, defaultCurrency }: Props) {
 
                 <div className="grid gap-3 sm:grid-cols-2">
                     <div className="space-y-2">
-                        <Label>Billing cycle</Label>
+                        <Label>{t("planForm.billingCycleLabel")}</Label>
                         <Select
                             value={billingCycle}
                             onValueChange={(v) => setBillingCycle(v as "monthly" | "yearly")}
@@ -102,14 +106,14 @@ export function PlanForm({ slug, defaultCurrency }: Props) {
                                 <SelectValue />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="monthly">Monthly</SelectItem>
-                                <SelectItem value="yearly">Yearly</SelectItem>
+                                <SelectItem value="monthly">{t("planForm.billingCycle.monthly")}</SelectItem>
+                                <SelectItem value="yearly">{t("planForm.billingCycle.yearly")}</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
 
                     <div className="space-y-2">
-                        <Label>Attendance limit</Label>
+                        <Label>{t("planForm.attendanceLimitLabel")}</Label>
                         <Select
                             value={attendanceLimitType}
                             onValueChange={(v) => setAttendanceLimitType(v as "unlimited" | "fixed")}
@@ -119,8 +123,8 @@ export function PlanForm({ slug, defaultCurrency }: Props) {
                                 <SelectValue />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="unlimited">Unlimited</SelectItem>
-                                <SelectItem value="fixed">Fixed</SelectItem>
+                                <SelectItem value="unlimited">{t("planForm.attendanceLimit.unlimited")}</SelectItem>
+                                <SelectItem value="fixed">{t("planForm.attendanceLimit.fixed")}</SelectItem>
                             </SelectContent>
                         </Select>
                         {attendanceLimitType === "fixed" && (
@@ -129,7 +133,7 @@ export function PlanForm({ slug, defaultCurrency }: Props) {
                                 min="0"
                                 value={attendanceLimit}
                                 onChange={(e) => setAttendanceLimit(e.target.value)}
-                                placeholder="Classes per period"
+                                placeholder={t("planForm.attendanceLimitPlaceholder")}
                                 disabled={isPending}
                             />
                         )}
@@ -137,7 +141,7 @@ export function PlanForm({ slug, defaultCurrency }: Props) {
                 </div>
 
                 <Button onClick={handleSubmit} disabled={isPending || !name || !price}>
-                    {isPending ? "Saving..." : "Create plan"}
+                    {isPending ? t("planForm.saving") : t("planForm.create")}
                 </Button>
             </CardContent>
         </Card>
