@@ -67,6 +67,12 @@ jobs:
           node-version: 22
           cache: pnpm
 
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run database migrations
+        run: pnpm --filter @gladia-app/db migrate
+
       - name: Install Vercel CLI
         run: pnpm install --global vercel
 
