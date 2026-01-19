@@ -210,6 +210,70 @@
       "working": "Working..."
     }
   },
+  "settingsMembership": {
+    "title": "Membership billing",
+    "subtitle": "Manage plans, assignments, and see your gym payments.",
+    "payments": {
+      "oneTime": "One-time payment",
+      "subscription": "Subscription payment"
+    },
+    "planForm": {
+      "title": "Create membership plan",
+      "nameLabel": "Name",
+      "namePlaceholder": "e.g. Unlimited Monthly",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Optional",
+      "priceLabel": "Price ({currency})",
+      "billingCycleLabel": "Billing cycle",
+      "billingCycle": {
+        "monthly": "Monthly",
+        "yearly": "Yearly"
+      },
+      "attendanceLimitLabel": "Attendance limit",
+      "attendanceLimit": {
+        "unlimited": "Unlimited",
+        "fixed": "Fixed"
+      },
+      "attendanceLimitPlaceholder": "Classes per period",
+      "saving": "Saving...",
+      "create": "Create plan"
+    },
+    "studentForm": {
+      "title": "Assign plan to student",
+      "studentLabel": "Student",
+      "studentPlaceholder": "Select student",
+      "planLabel": "Plan",
+      "planPlaceholder": "Select plan",
+      "assigning": "Assigning...",
+      "assign": "Assign plan"
+    },
+    "plansCard": {
+      "title": "Plans",
+      "description": "Billing cycles and limits for your gym.",
+      "empty": "No plans yet.",
+      "table": {
+        "name": "Name",
+        "price": "Price",
+        "billing": "Billing",
+        "attendance": "Attendance",
+        "status": "Status"
+      },
+      "attendanceUnlimited": "Unlimited",
+      "attendanceFixed": "{count} / fixed",
+      "statusActive": "Active",
+      "statusInactive": "Inactive"
+    },
+    "assignmentsCard": {
+      "title": "Student assignments",
+      "description": "Which students belong to which plan.",
+      "empty": "No students yet.",
+      "table": {
+        "student": "Student",
+        "plan": "Plan"
+      },
+      "notAssigned": "Not assigned"
+    }
+  },
   "settingsTraining": {
     "title": "Training rules",
     "subtitle": "Define requirements and guidance for each belt level.",
@@ -292,6 +356,22 @@
     "progress": {
       "title": "Promotion Progress",
       "description": "Track progress toward next belt promotion"
+    },
+    "promotionTimeline": {
+      "title": "Belt progression",
+      "description": "Chronological record of belt promotions.",
+      "promotedFrom": "Promoted from",
+      "to": "to",
+      "startedAt": "Started at"
+    },
+    "promotion": {
+      "title": "Promote belt",
+      "description": "Record a belt promotion for this student.",
+      "currentLabel": "Current belt",
+      "newLabel": "New belt",
+      "newPlaceholder": "Select belt",
+      "action": "Promote",
+      "actioning": "Promoting..."
     }
   },
   "settingsGeneral": {

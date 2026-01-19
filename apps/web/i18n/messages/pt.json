@@ -210,6 +210,70 @@
         "working": "Processando..."
       }
     },
+    "settingsMembership": {
+      "title": "Faturamento de associação",
+      "subtitle": "Gerencie planos, atribuições e veja os pagamentos da sua academia.",
+      "payments": {
+        "oneTime": "Pagamento único",
+        "subscription": "Pagamento de assinatura"
+      },
+      "planForm": {
+        "title": "Criar plano de associação",
+        "nameLabel": "Nome",
+        "namePlaceholder": "ex.: Mensal ilimitado",
+        "descriptionLabel": "Descrição",
+        "descriptionPlaceholder": "Opcional",
+        "priceLabel": "Preço ({currency})",
+        "billingCycleLabel": "Ciclo de cobrança",
+        "billingCycle": {
+          "monthly": "Mensal",
+          "yearly": "Anual"
+        },
+        "attendanceLimitLabel": "Limite de presença",
+        "attendanceLimit": {
+          "unlimited": "Ilimitado",
+          "fixed": "Fixo"
+        },
+        "attendanceLimitPlaceholder": "Aulas por período",
+        "saving": "Salvando...",
+        "create": "Criar plano"
+      },
+      "studentForm": {
+        "title": "Atribuir plano ao aluno",
+        "studentLabel": "Aluno",
+        "studentPlaceholder": "Selecionar aluno",
+        "planLabel": "Plano",
+        "planPlaceholder": "Selecionar plano",
+        "assigning": "Atribuindo...",
+        "assign": "Atribuir plano"
+      },
+      "plansCard": {
+        "title": "Planos",
+        "description": "Ciclos de cobrança e limites para a sua academia.",
+        "empty": "Nenhum plano ainda.",
+        "table": {
+          "name": "Nome",
+          "price": "Preço",
+          "billing": "Cobrança",
+          "attendance": "Presença",
+          "status": "Status"
+        },
+        "attendanceUnlimited": "Ilimitado",
+        "attendanceFixed": "{count} / fixo",
+        "statusActive": "Ativo",
+        "statusInactive": "Inativo"
+      },
+      "assignmentsCard": {
+        "title": "Atribuições de alunos",
+        "description": "Quais alunos pertencem a qual plano.",
+        "empty": "Nenhum aluno ainda.",
+        "table": {
+          "student": "Aluno",
+          "plan": "Plano"
+        },
+        "notAssigned": "Não atribuído"
+      }
+    },
     "settingsTraining": {
       "title": "Regras de treinamento",
       "subtitle": "Defina requisitos e orientações para cada nível de faixa.",
@@ -266,6 +330,22 @@
         "progress": {
             "title": "Progresso de Graduação",
             "description": "Acompanhe o progresso rumo à próxima troca de faixa"
+        },
+        "promotionTimeline": {
+            "title": "Progressão de faixas",
+            "description": "Registro cronológico das graduações de faixa.",
+            "promotedFrom": "Promovido de",
+            "to": "para",
+            "startedAt": "Iniciado em"
+        },
+        "promotion": {
+            "title": "Promover faixa",
+            "description": "Registre uma promoção de faixa para este aluno.",
+            "currentLabel": "Faixa atual",
+            "newLabel": "Nova faixa",
+            "newPlaceholder": "Selecionar faixa",
+            "action": "Promover",
+            "actioning": "Promovendo..."
         }
     },
     "settingsGeneral": {

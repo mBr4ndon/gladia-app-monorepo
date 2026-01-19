@@ -7,6 +7,7 @@ import { StudentMembershipForm } from "./_components/student-membership-form";
 import Stripe from "stripe";
 import { requireAdminGymMembership } from "@/lib/utils";
 import { MembershipActions } from "../billing/_components/membership-actions";
+import { getTranslations } from "next-intl/server";
 
 type Props = Readonly<{
     params: Promise<{ slug: string }>;
@@ -22,7 +23,9 @@ const stripeClient = process.env.STRIPE_SECRET_KEY
     ? new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: "2025-11-17.clover" })
     : null;
 
-async function getStripePayments(customerId: string) {
+type TFunction = Awaited<ReturnType<typeof getTranslations>>;
+
+async function getStripePayments(customerId: string, t: TFunction) {
     if (!stripeClient) return [];
 
     const [paymentIntents, invoices] = await Promise.all([
@@ -43,7 +46,7 @@ async function getStripePayments(customerId: string) {
         if (pi.status === "succeeded") {
             payments.push({
                 id: pi.id,
-                description: pi.description || "One-time payment",
+                description: pi.description || t("payments.oneTime"),
                 amount: pi.amount,
                 currency: pi.currency,
                 status: pi.status,
@@ -56,7 +59,7 @@ async function getStripePayments(customerId: string) {
         if (invoice.status === "paid") {
             payments.push({
                 id: invoice.id,
-                description: invoice.description || "Subscription payment",
+                description: invoice.description || t("payments.subscription"),
                 amount: invoice.amount_paid,
                 currency: invoice.currency,
                 status: invoice.status,
@@ -73,6 +76,7 @@ async function getStripePayments(customerId: string) {
 export default async function GymSettingsMembershipPage({ params }: Props) {
     const { slug } = await params;
     const { membership } = await requireAdminGymMembership(slug);
+    const t = await getTranslations("settingsMembership");
 
     const [plans, studentMemberships, studentData, subscription] = await Promise.all([
         getMembershipPlansByGym(membership.gymId),
@@ -82,7 +86,7 @@ export default async function GymSettingsMembershipPage({ params }: Props) {
     ]);
 
     const payments = subscription?.stripeCustomerId
-        ? await getStripePayments(subscription.stripeCustomerId)
+        ? await getStripePayments(subscription.stripeCustomerId, t)
         : [];
 
     const students = (studentData ?? []).map((s) => ({
@@ -100,10 +104,10 @@ export default async function GymSettingsMembershipPage({ params }: Props) {
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
-                        Membership billing
+                        {t("title")}
                     </h1>
                     <p className="text-muted-foreground">
-                        Manage plans, assignments, and see your gym payments.
+                        {t("subtitle")}
                     </p>
                 </div>
             </div>
@@ -119,22 +123,22 @@ export default async function GymSettingsMembershipPage({ params }: Props) {
 
             <Card>
                 <CardHeader>
-                    <CardTitle>Plans</CardTitle>
-                    <CardDescription>Billing cycles and limits for your gym.</CardDescription>
+                    <CardTitle>{t("plansCard.title")}</CardTitle>
+                    <CardDescription>{t("plansCard.description")}</CardDescription>
                 </CardHeader>
                 <CardContent>
                     {plans.length === 0 ? (
-                        <p className="text-sm text-muted-foreground">No plans yet.</p>
+                        <p className="text-sm text-muted-foreground">{t("plansCard.empty")}</p>
                     ) : (
                         <div className="overflow-x-auto">
                             <Table>
                                 <TableHeader>
                                     <TableRow>
-                                        <TableHead>Name</TableHead>
-                                        <TableHead>Price</TableHead>
-                                        <TableHead>Billing</TableHead>
-                                        <TableHead>Attendance</TableHead>
-                                        <TableHead>Status</TableHead>
+                                        <TableHead>{t("plansCard.table.name")}</TableHead>
+                                        <TableHead>{t("plansCard.table.price")}</TableHead>
+                                        <TableHead>{t("plansCard.table.billing")}</TableHead>
+                                        <TableHead>{t("plansCard.table.attendance")}</TableHead>
+                                        <TableHead>{t("plansCard.table.status")}</TableHead>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
@@ -142,15 +146,17 @@ export default async function GymSettingsMembershipPage({ params }: Props) {
                                         <TableRow key={plan.id}>
                                             <TableCell className="font-medium">{plan.name}</TableCell>
                                             <TableCell>{formatAmount(plan.price, plan.currency)}</TableCell>
-                                            <TableCell className="capitalize">{plan.billingCycle}</TableCell>
+                                            <TableCell className="capitalize">
+                                                {t(`planForm.billingCycle.${plan.billingCycle}`)}
+                                            </TableCell>
                                             <TableCell className="capitalize">
                                                 {plan.attendanceLimitType === "unlimited"
-                                                    ? "Unlimited"
-                                                    : `${plan.attendanceLimit ?? 0} / ${plan.attendanceLimitType}`}
+                                                    ? t("plansCard.attendanceUnlimited")
+                                                    : t("plansCard.attendanceFixed", { count: plan.attendanceLimit ?? 0 })}
                                             </TableCell>
                                             <TableCell>
                                                 <Badge variant={plan.isActive ? "outline" : "destructive"}>
-                                                    {plan.isActive ? "Active" : "Inactive"}
+                                                    {plan.isActive ? t("plansCard.statusActive") : t("plansCard.statusInactive")}
                                                 </Badge>
                                             </TableCell>
                                         </TableRow>
@@ -164,25 +170,25 @@ export default async function GymSettingsMembershipPage({ params }: Props) {
 
             <Card>
                 <CardHeader>
-                    <CardTitle>Student assignments</CardTitle>
-                    <CardDescription>Which students belong to which plan.</CardDescription>
+                    <CardTitle>{t("assignmentsCard.title")}</CardTitle>
+                    <CardDescription>{t("assignmentsCard.description")}</CardDescription>
                 </CardHeader>
                 <CardContent>
                     {students.length === 0 ? (
-                        <p className="text-sm text-muted-foreground">No students yet.</p>
+                        <p className="text-sm text-muted-foreground">{t("assignmentsCard.empty")}</p>
                     ) : (
                         <div className="overflow-x-auto">
                             <Table>
                                 <TableHeader>
                                     <TableRow>
-                                        <TableHead>Student</TableHead>
-                                        <TableHead>Plan</TableHead>
+                                        <TableHead>{t("assignmentsCard.table.student")}</TableHead>
+                                        <TableHead>{t("assignmentsCard.table.plan")}</TableHead>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
                                     {students.map((student) => {
                                         const planId = studentPlanMap.get(student.id);
-                                        const planName = plans.find((p) => p.id === planId)?.name ?? "Not assigned";
+                                        const planName = plans.find((p) => p.id === planId)?.name ?? t("assignmentsCard.notAssigned");
                                         return (
                                             <TableRow key={student.id}>
                                                 <TableCell>{student.name}</TableCell>
