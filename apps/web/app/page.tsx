@@ -1,17 +1,5 @@
-import { Button } from "@gladia-app/ui/components/button";
-import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return (
-    <div className="flex items-center justify-center min-h-svh">
-      <div className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold">Hello World from Web 1</h1>
-        <Link href="/sign-in">
-          <Button size="sm">
-            Go to Sign In
-          </Button>
-        </Link>
-      </div>
-    </div>
-  )
+  return redirect("https://www.gladia.app");
 }
