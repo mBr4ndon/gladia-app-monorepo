@@ -465,13 +465,13 @@
       },
       "plans": {
         "monthly": "Mensal",
-        "monthlyPrice": "€59",
+        "monthlyPrice": "€24,99",
         "monthlyUnit": "mês",
         "annual": "Anual",
-        "annualPrice": "€588",
+        "annualPrice": "€299,88",
         "annualUnit": "por ano",
-        "annualNote": "(€49/mês)",
-        "annualBadge": "Economize 17%",
+        "annualNote": "(€24,99/mês)",
+        "annualBadge": "Cobrado anualmente",
         "trialNote": "Todos os planos incluem 14 dias de teste grátis"
       },
       "actions": {

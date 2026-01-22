@@ -25,7 +25,7 @@ export async function POST(req: Request) {
         const { origin } = new URL(req.url);
         let customerId;
         const isAnnual = formData.planType === "annual";
-        const unitAmount = isAnnual ? 58800 : 5900;
+        const unitAmount = isAnnual ? 29988 : 2499;
         const intervalValue = isAnnual ? "year" : "month";
         const planName = `${formData.name} - BJJ Academy Management ${isAnnual ? "Annual" : "Monthly"} Subscription`;
 
